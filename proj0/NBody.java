@@ -23,7 +23,7 @@ public class NBody {
             * we will ger Error   as java.lang.NullPointerException since we don't allocate
              * actual place for these Objects
              */
-            planets[i] = new Planet();
+            planets[i] = new Planet(1,1,1,1,1,"ok");
 
             planets[i].xxPos = in.readDouble();
             planets[i].yyPos = in.readDouble();

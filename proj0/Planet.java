@@ -6,7 +6,7 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
-    public Planet() {}
+
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
         yyPos = yP;
@@ -50,7 +50,7 @@ public class Planet {
         return calcForceExertedBy(p2) * y_span / calcDistance(p2);
     }
 
-    public boolean equals(Planet p2) {
+    private boolean equals(Planet p2) {
         if (this == p2)
             return true;
         else
