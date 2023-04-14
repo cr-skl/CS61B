@@ -94,7 +94,7 @@ public class LinkedListDeque<T> {
         return get_recursive(p.next, index - 1);
     }
 
-    public T gerRecursive(int index) {
+    public T getRecursive(int index) {
         if (index > size - 1 || index < 0) {
             return null;
         }
