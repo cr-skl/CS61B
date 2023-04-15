@@ -11,43 +11,42 @@ public class LinkedListDeque<T> {
         }
     }
     private int size;
-    private Dnode fake_head;
-    private Dnode fake_tail;
+    private Dnode fakeHead;
+    private Dnode fakeTail;
 
 
     public LinkedListDeque() {
         size = 0;
         // 初始化节点需要注意先初始化，  再赋值
-        // what is in fake_head or fake_tail is meaningless
-        fake_head = new Dnode(null,  null, null);
-        fake_tail = new Dnode(null, null, null);
-        fake_head.next = fake_tail;
-        fake_tail.pre = fake_head;
+        // what is in fakeHead or fakeTail is meaningless
+        fakeHead = new Dnode(null,  null, null);
+        fakeTail = new Dnode(null, null, null);
+        fakeHead.next = fakeTail;
+        fakeTail.pre = fakeHead;
     }
 //    public LinkedListDeque(LinkedListDeque d1) {
 //        size = 0;
-//        // what is in fake_head or fake_tail is meaningless
-//        fake_head = new Dnode(null,  null, null);
-//        fake_tail = new Dnode(null, null, null);
-//        fake_head.next = fake_tail;
-//        fake_tail.pre = fake_head;
+//        // what is in fakeHead or fakeTail is meaningless
+//        fakeHead = new Dnode(null,  null, null);
+//        fakeTail = new Dnode(null, null, null);
+//        fakeHead.next = fakeTail;
+//        fakeTail.pre = fakeHead;
 //
-//        Dnode p = d1.fake_head.next;
+//        Dnode p = d1.fakeHead.next;
 //        while (p.item != null) {
 //            addFirst(p.item);
 //        }
 //    }
-
     public void addFirst(T item) {
-        Dnode p = new Dnode(item, fake_head.next, fake_head);
-        fake_head.next.pre = p;
-        fake_head.next = p;
+        Dnode p = new Dnode(item, fakeHead.next, fakeHead);
+        fakeHead.next.pre = p;
+        fakeHead.next = p;
         size++;
     }
     public void addLast(T item) {
-        Dnode p = new Dnode(item, fake_tail, fake_tail.pre);
-        fake_tail.pre.next = p;
-        fake_tail.pre = p;
+        Dnode p = new Dnode(item, fakeTail, fakeTail.pre);
+        fakeTail.pre.next = p;
+        fakeTail.pre = p;
         size++;
     }
     public boolean isEmpty() {
@@ -57,7 +56,7 @@ public class LinkedListDeque<T> {
         return size;
     }
     public void printDeque() {
-        Dnode p = fake_head.next;
+        Dnode p = fakeHead.next;
         while (p.item != null) {
             StdOut.print(p.item + " ");
             p = p.next;
@@ -66,39 +65,40 @@ public class LinkedListDeque<T> {
     }
     public T removeFirst() {
         size--;
-        Dnode p = fake_head.next;
-        p.next.pre = fake_head;
-        fake_head.next = p.next;
+        Dnode p = fakeHead.next;
+        p.next.pre = fakeHead;
+        fakeHead.next = p.next;
         return p.item;
     }
     public T removeLast() {
         size--;
-        Dnode p = fake_tail.pre;
-        p.pre.next = fake_tail;
-        fake_tail.pre = p.pre;
+        Dnode p = fakeTail.pre;
+        p.pre.next = fakeTail;
+        fakeTail.pre = p.pre;
         return p.item;
     }
     public T get(int index) {
         if (index > size - 1 || index < 0) {
             return null;
         }
-        Dnode p = fake_head.next;
+        Dnode p = fakeHead.next;
         for (int i = 0; i < index; i++) {
             p = p.next;
         }
         return p.item;
     }
-    private Dnode get_recursive(Dnode p, int index) {
-        if (index == 0)
-            return  p;
-        return get_recursive(p.next, index - 1);
+    private Dnode getRecursiveHelper(Dnode p, int index) {
+        if (index == 0) {
+            return p;
+        }
+        return getRecursiveHelper(p.next, index - 1);
     }
 
     public T getRecursive(int index) {
         if (index > size - 1 || index < 0) {
             return null;
         }
-        return get_recursive(fake_head.next, index).item;
+        return getRecursiveHelper(fakeHead.next, index).item;
     }
 
 }
