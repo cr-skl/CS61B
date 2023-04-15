@@ -1,5 +1,5 @@
 public class LinkedListDeque<T> {
-    public class Dnode {
+    private class Dnode {
         T item;
         Dnode next;
         Dnode pre;
@@ -24,19 +24,19 @@ public class LinkedListDeque<T> {
         fake_head.next = fake_tail;
         fake_tail.pre = fake_head;
     }
-    public LinkedListDeque(LinkedListDeque d1) {
-        size = 0;
-        // what is in fake_head or fake_tail is meaningless
-        fake_head = new Dnode(null,  null, null);
-        fake_tail = new Dnode(null, null, null);
-        fake_head.next = fake_tail;
-        fake_tail.pre = fake_head;
-
-        Dnode p = d1.fake_head.next;
-        while (p.item != null) {
-            addFirst(p.item);
-        }
-    }
+//    public LinkedListDeque(LinkedListDeque d1) {
+//        size = 0;
+//        // what is in fake_head or fake_tail is meaningless
+//        fake_head = new Dnode(null,  null, null);
+//        fake_tail = new Dnode(null, null, null);
+//        fake_head.next = fake_tail;
+//        fake_tail.pre = fake_head;
+//
+//        Dnode p = d1.fake_head.next;
+//        while (p.item != null) {
+//            addFirst(p.item);
+//        }
+//    }
 
     public void addFirst(T item) {
         Dnode p = new Dnode(item, fake_head.next, fake_head);
