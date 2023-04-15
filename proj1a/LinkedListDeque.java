@@ -64,6 +64,8 @@ public class LinkedListDeque<T> {
         StdOut.println();
     }
     public T removeFirst() {
+        if (isEmpty())
+            return null;
         size--;
         Dnode p = fakeHead.next;
         p.next.pre = fakeHead;
@@ -71,6 +73,8 @@ public class LinkedListDeque<T> {
         return p.item;
     }
     public T removeLast() {
+        if (isEmpty())
+            return null;
         size--;
         Dnode p = fakeTail.pre;
         p.pre.next = fakeTail;
