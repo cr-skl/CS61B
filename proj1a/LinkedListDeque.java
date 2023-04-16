@@ -24,19 +24,6 @@ public class LinkedListDeque<T> {
         fakeHead.next = fakeTail;
         fakeTail.pre = fakeHead;
     }
-//    public LinkedListDeque(LinkedListDeque d1) {
-//        size = 0;
-//        // what is in fakeHead or fakeTail is meaningless
-//        fakeHead = new Dnode(null,  null, null);
-//        fakeTail = new Dnode(null, null, null);
-//        fakeHead.next = fakeTail;
-//        fakeTail.pre = fakeHead;
-//
-//        Dnode p = d1.fakeHead.next;
-//        while (p.item != null) {
-//            addFirst(p.item);
-//        }
-//    }
     public void addFirst(T item) {
         Dnode p = new Dnode(item, fakeHead.next, fakeHead);
         fakeHead.next.pre = p;
@@ -64,8 +51,9 @@ public class LinkedListDeque<T> {
         StdOut.println();
     }
     public T removeFirst() {
-        if (isEmpty())
+        if (isEmpty()) {
             return null;
+        }
         size--;
         Dnode p = fakeHead.next;
         p.next.pre = fakeHead;
@@ -73,8 +61,9 @@ public class LinkedListDeque<T> {
         return p.item;
     }
     public T removeLast() {
-        if (isEmpty())
+        if (isEmpty()) {
             return null;
+        }
         size--;
         Dnode p = fakeTail.pre;
         p.pre.next = fakeTail;
