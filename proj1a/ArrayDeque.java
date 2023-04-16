@@ -1,3 +1,28 @@
+/**  test , copy below
+ public static void main(String[] args) {
+ ArrayDeque<Integer> array = new ArrayDeque<>();
+ array.addFirst(0);
+ StdOut.println(array.get(0));
+ array.removeFirst();
+ array.addFirst(3);
+ StdOut.println(array.get(0));
+ array.addLast(5);
+ array.addFirst(6);
+ array.removeLast();
+ StdOut.println(array.get(0));
+ array.addLast(9);
+ array.addFirst(10);
+ array.removeFirst();
+ array.addLast(12);
+ array.addLast(13);
+ StdOut.println(array.get(2));
+ array.addLast(15);
+ StdOut.println(array.get(0));
+ array.addFirst(17);
+ array.addFirst(18);
+ array.addFirst(19);
+ StdOut.println(array.removeFirst());
+ }*/
 public class ArrayDeque<T> {
     /** num of elements stored in deque*/
     private int size;
@@ -49,7 +74,9 @@ public class ArrayDeque<T> {
     private boolean shouldHalf() {
         // maitain if the size is under 8
         // int / int == int   , to get fraction, must float / int = float
-        if ( (size+0.001) / length < 0.25 && length >= 16 ) {
+        final double increment = 0.001;
+        final int    doublesize = 2 * 8;
+        if ((size + increment) / length < 0.25 && length >= doublesize) {
             return true;
         }
         return false;
@@ -156,30 +183,5 @@ public class ArrayDeque<T> {
             ptr = plusOne(ptr, length);
         }
     }
-
-    public static void main(String[] args) {
-        ArrayDeque<Integer> array = new ArrayDeque<>();
-        array.addFirst(0);
-        StdOut.println(array.get(0));
-        array.removeFirst();
-        array.addFirst(3);
-        StdOut.println(array.get(0));
-        array.addLast(5);
-        array.addFirst(6);
-        array.removeLast();
-        StdOut.println(array.get(0));
-        array.addLast(9);
-        array.addFirst(10);
-        array.removeFirst();
-        array.addLast(12);
-        array.addLast(13);
-        StdOut.println(array.get(2));
-        array.addLast(15);
-        StdOut.println(array.get(0));
-        array.addFirst(17);
-        array.addFirst(18);
-        array.addFirst(19);
-        StdOut.println(array.removeFirst());
-    }
-
 }
+
