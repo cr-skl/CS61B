@@ -25,7 +25,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-        /* NOTE: public IntList () { }  would also work. */
+    /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
