@@ -26,26 +26,17 @@ public class TestPalindrome {
         assertEquals(false, actual3);
     }
 
-    @Test
-    public void testisPalindromeRecursive() {
-        boolean actual = palindrome.isPalindromeRecursive("persiflage");
-        assertEquals(false, actual);
-        boolean actual2 = palindrome.isPalindromeRecursive("rbabr");
-        assertEquals(true, actual2);
-        boolean actual3 = palindrome.isPalindromeRecursive("Boooob");
-        assertEquals(false, actual3);
-    }
+//    @Test
+//    public void testisPalindromeRecursive() {
+//        boolean actual = palindrome.isPalindromeRecursive("persiflage");
+//        assertEquals(false, actual);
+//        boolean actual2 = palindrome.isPalindromeRecursive("rbabr");
+//        assertEquals(true, actual2);
+//        boolean actual3 = palindrome.isPalindromeRecursive("Boooob");
+//        assertEquals(false, actual3);
+//    }
 
-    @Test
-    public void testOffByOne() {
-        OffByOne obo = new OffByOne();
-        boolean actual = palindrome.isPalindrome("persiflage", obo);
-        assertEquals(false, actual);
-        boolean actual2 = palindrome.isPalindrome("rbabr", obo);
-        assertEquals(false, actual2);
-        boolean actual3 = palindrome.isPalindrome("abcab", obo);
-        assertEquals(true, actual3);
-    }
+
 
     @Test
     public void testOffByN() {

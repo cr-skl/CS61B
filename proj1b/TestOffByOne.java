@@ -5,15 +5,15 @@ public class TestOffByOne {
 
     // You must use this CharacterComparator and not instantiate
     // new ones, or the autograder might be upset.
+    static Palindrome palindrome = new Palindrome();
     @Test
     public void testOffByOne() {
         OffByOne obo = new OffByOne();
-        boolean actual = obo.equalChars('a', 'b');  // true
-        obo.equalChars('r', 'q');  // true
-        assertEquals(true, actual);
-        boolean actual1 = obo.equalChars('r', 'q');
-        assertEquals(true, actual1);
-        boolean actual2 =obo.equalChars('z', 'a');
+        boolean actual = palindrome.isPalindrome("persiflage", obo);
+        assertEquals(false, actual);
+        boolean actual2 = palindrome.isPalindrome("rbabr", obo);
         assertEquals(false, actual2);
+        boolean actual3 = palindrome.isPalindrome("abcab", obo);
+        assertEquals(true, actual3);
     }
 }

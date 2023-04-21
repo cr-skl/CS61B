@@ -29,22 +29,22 @@ public class Palindrome {
         return true;
     }
 
-    public boolean isPalindromeRecursive(String word) {
-        Deque dq = wordToDeque(word);
-        return isPalindromeRecursiveHelper(dq);
-    }
-
-    private static boolean isPalindromeRecursiveHelper(Deque word) {
-        if (word.size() <= 1) {
-            return true;
-        }
-        Character a = (Character) word.removeFirst();
-        Character b = (Character) word.removeLast();
-        if (a == b) {
-            return isPalindromeRecursiveHelper(word);
-        }
-        return false;
-    }
+//    public boolean isPalindromeRecursive(String word) {
+//        Deque dq = wordToDeque(word);
+//        return isPalindromeRecursiveHelper(dq);
+//    }
+//
+//    private static boolean isPalindromeRecursiveHelper(Deque word) {
+//        if (word.size() <= 1) {
+//            return true;
+//        }
+//        Character a = (Character) word.removeFirst();
+//        Character b = (Character) word.removeLast();
+//        if (a == b) {
+//            return isPalindromeRecursiveHelper(word);
+//        }
+//        return false;
+//    }
 
     public boolean isPalindrome(String word, CharacterComparator cc){
         Deque dq = wordToDeque(word);
