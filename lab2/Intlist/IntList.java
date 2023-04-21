@@ -77,10 +77,9 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
         // 1, move to the tail of A
         IntList ptr0 = A;
-        while(ptr0.rest != null) {
+        while (ptr0.rest != null) {
             ptr0 = ptr0.rest;
         }
         // 2, connect A with B
@@ -93,21 +92,20 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
         IntList ptr = new IntList();
         IntList ptr_origin = ptr;
         // 1, add A to ptr
         IntList ptr1 = A;
-        while(ptr1 != null) {
-            IntList temp = new IntList(ptr1.first,null);
+        while (ptr1 != null) {
+            IntList temp = new IntList(ptr1.first, null);
             ptr.rest = temp;              // 不能写 ptr = temp 哦
             ptr = ptr.rest;
             ptr1 = ptr1.rest;
         }
         // 2, add B to ptr
         IntList ptr2 = B;
-        while(ptr2 != null) {
-            IntList temp = new IntList(ptr2.first,null);
+        while (ptr2 != null) {
+            IntList temp = new IntList(ptr2.first, null);
             ptr.rest = temp;
             ptr = ptr.rest;
             ptr2 = ptr2.rest;
@@ -272,10 +270,11 @@ public class IntList {
 
 
     public int size() {
-        if (this.rest == null)
+        if (this.rest == null) {
             return 1;
-        else
+        } else {
             return 1 + this.rest.size();
+        }
     }
 
 
@@ -283,7 +282,7 @@ public class IntList {
         int len = 0;
         IntList p1 = this;
         while (p1 != null) {
-            len ++;
+            len++;
             p1 = p1.rest;
         }
         return len;
@@ -291,16 +290,17 @@ public class IntList {
 
 
     public int get(int index){
-        if (index == 0)
+        if (index == 0) {
             return first;
-        else
-            return rest.get(index -1);
+        } else {
+            return rest.get(index - 1);
+        }
     }
 
     public int iterativeget(int index) {
         IntList p = this;
         while (index != 0) {
-            index --;
+            index--;
             p = p.rest;
         }
         return p.first;
@@ -311,10 +311,10 @@ public class IntList {
      * to change. */
     public static IntList incrList(IntList L, int x) {
         /* Your code here. */
-        IntList dummyp = new IntList(-1,null);
+        IntList dummyp = new IntList(-1, null);
         IntList p = dummyp.rest;
-        while(L != null) {
-            p = new IntList(x+ L.first, null);
+        while (L != null) {
+            p = new IntList(x + L.first,  null);
             p = p.rest;
             L = L.rest;
         }
@@ -327,7 +327,7 @@ public class IntList {
     public static IntList dincrList(IntList L, int x) {
         /* Your code here. */
         IntList L1 = L;
-        while(L1 != null) {
+        while (L1 != null) {
             L1.first += x;
             L1 = L1.rest;
         }
@@ -343,9 +343,9 @@ public class IntList {
         StdOut.println(L.get(2));
         StdOut.println(L.iterativeget(2));
 
-        L = IntList.dincrList(L,10);
+        L = IntList.dincrList(L, 10);
         StdOut.println(L.get(2));
-        IntList L1 = IntList.dincrList(L,20);
+        IntList L1 = IntList.dincrList(L, 20);
         StdOut.println(L1.get(2));
     }
 }
