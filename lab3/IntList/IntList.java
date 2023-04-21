@@ -77,14 +77,20 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        // 1, move to the tail of A
         IntList ptr0 = A;
-        while (ptr0.rest != null) {
-            ptr0 = ptr0.rest;
+        if (ptr0 != null) {
+            // 1, move to the tail of A
+            while (ptr0.rest != null) {
+                ptr0 = ptr0.rest;
+            }
+            // 2, connect A with B
+            ptr0.rest = B;
+            return A;
+        } else {
+            return B;
         }
-        // 2, connect A with B
-        ptr0.rest = B;
-        return A;
+
+
     }
 
     /**
@@ -335,7 +341,7 @@ public class IntList {
     }
 
     public static void main(String[] args) {
-        IntList L = new IntList(1,null);
+        IntList L = new IntList(1, null);
         L = new IntList(2, L);
         L = new IntList(3, L);
         StdOut.println(L.size());
