@@ -8,7 +8,7 @@ public class TestOffByOne {
     static Palindrome palindrome = new Palindrome();
     @Test
     public void testOffByOne() {
-        OffByOne obo = new OffByOne();
+        CharacterComparator obo = new OffByOne();
         boolean actual = palindrome.isPalindrome("persiflage", obo);
         assertEquals(false, actual);
         boolean actual2 = palindrome.isPalindrome("rbabr", obo);
